@@ -28,7 +28,28 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.26</version>
 		</dependency>
+<!--validation-->
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+			<version>3.2.0</version>
+		</dependency>
 
+
+		<!--		mapper-->
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>2.4.2</version>
+		</dependency>
+<!--		exception handling-->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.4</version>
+			<scope>provided</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -36,6 +57,8 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+
+<!--		annotaitons-->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -54,13 +77,13 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>com.microsoft.sqlserver</groupId>
-			<artifactId>sqljdbc41</artifactId>
-			<version>4.1</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/src/main/resources/sqljdbc41.jar</systemPath>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>com.microsoft.sqlserver</groupId>-->
+<!--			<artifactId>sqljdbc41</artifactId>-->
+<!--			<version>4.1</version>-->
+<!--			<scope>system</scope>-->
+<!--			<systemPath>${basedir}/src/main/resources/sqljdbc41.jar</systemPath>-->
+<!--		</dependency>-->
 
 
 
