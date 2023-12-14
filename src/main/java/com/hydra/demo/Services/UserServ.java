@@ -48,8 +48,8 @@ public class UserServ {
         user.setEmail(userdto.getEmail());
         user.setName(userdto.getName());
 
-        iuserRepo.save(user);
-        return userdto;
+        User saved=iuserRepo.save(user);
+        return this.modelMapper.map(saved, UserDto.class);
 
     }
 

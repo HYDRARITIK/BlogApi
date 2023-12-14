@@ -7,10 +7,11 @@ import com.hydra.demo.Services.UserServ;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@RestController
+@Controller
 @RequestMapping("/api/v1/user")
 public class UserController {
 
@@ -18,22 +19,24 @@ public class UserController {
     @Autowired
     private UserServ userServ;
 
+    @RequestMapping(value="", method = RequestMethod.POST)
+    public ResponseEntity<?> CreateUser(@RequestBody  UserDto user){
+        UserDto udt=userServ.createUser(user);
+        return new ResponseEntity<>(udt, HttpStatus.OK);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<?> GetUserById(@PathVariable("id") Integer id){
         UserDto udt=userServ.getUserById(id);
         return new ResponseEntity<>(udt, HttpStatus.OK);
     }
-    @GetMapping("/")
+    @GetMapping("")
     public ResponseEntity<?> GetAll(){
         List<UserDto> udt=userServ.GetAllUser();
         return new ResponseEntity<>(udt, HttpStatus.OK);
     }
 
-    @PostMapping("/")
-    public ResponseEntity<?> CreateUser(@RequestBody  UserDto user){
-        UserDto udt=userServ.createUser(user);
-        return new ResponseEntity<>(udt, HttpStatus.OK);
-    }
+
 
     @PutMapping("/{id}")
     public ResponseEntity<?> UpdateUser(@RequestBody  UserDto user,@PathVariable("id") Integer id){

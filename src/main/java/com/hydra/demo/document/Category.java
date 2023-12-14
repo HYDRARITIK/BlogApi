@@ -1,39 +1,32 @@
 package com.hydra.demo.document;
 
-
-import java.io.Serializable;
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
-@Table(name="User")
+@Table(name="Category")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class User implements Serializable {
-
+public class Category implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private String name;
+    private String title;
 
     @Column(nullable = false)
-    private String email;
-    @Column(nullable = false)
-    private  String password;
+    private String description;
 
-
-//    1 user ->many post
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+//  1  cateogory -> many posts
+    @OneToMany(mappedBy = "category",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JsonManagedReference
-    List<Post> AllPost;
-
-
+    private List<Post> AllPosts;
 
 }
-
