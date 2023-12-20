@@ -98,9 +98,9 @@ public class PostServ {
 
     public List<PostDto> getAllPost(Integer pageSize,Integer pageNo ,String sortby){
 
-//        Pageable pageRequest = PageRequest.of(pageNo, pageSize, Sort.by(sortby).ascending());
+        Pageable pageRequest = PageRequest.of(pageNo, pageSize, Sort.by(sortby).ascending());
 
-        List<Post> ui=ipostRepo.findAll().stream().toList();
+        List<Post> ui=ipostRepo.findAll(pageRequest).stream().toList();
         List<PostDto> udt= ui.stream().map((curr_post)->{
             return this.modelMapper.map(curr_post, PostDto.class);
         }).toList();

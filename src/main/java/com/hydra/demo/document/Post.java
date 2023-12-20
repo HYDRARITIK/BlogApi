@@ -17,6 +17,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Builder
 public class Post implements Serializable {
 
     @Id

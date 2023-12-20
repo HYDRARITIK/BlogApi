@@ -70,7 +70,7 @@ public class PostController {
 //        baseurl/?pageNo=2?pageSize=3
     @GetMapping("")
     public ResponseEntity<?> getAllPost(@RequestParam(defaultValue = "0") Integer pageNo,
-                                        @RequestParam(defaultValue = "10") Integer pageSize,
+                                        @RequestParam(defaultValue = "2") Integer pageSize,
                                         @RequestParam(defaultValue = "title") String sortBy
     ){
         List<PostDto> pdto=postServ.getAllPost(pageSize,pageNo,sortBy);

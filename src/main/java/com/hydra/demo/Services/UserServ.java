@@ -46,7 +46,7 @@ public class UserServ {
                 (()-> new ApplicationException("104","userNotFound",HttpStatus.CONFLICT));
 
         user.setEmail(userdto.getEmail());
-        user.setName(userdto.getName());
+        user.setFirstname(userdto.getName());
 
         User saved=iuserRepo.save(user);
         return this.modelMapper.map(saved, UserDto.class);
